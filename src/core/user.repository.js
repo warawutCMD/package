@@ -4,6 +4,11 @@
 const { User } = require('../models'); // import model ของ User
 
 class UserRepository {
+    constructor() {
+        const db = connection.connect('mysql');
+        super(instanceModel(db));
+      }
+      
   async findAll() {
     return User.findAll(); // ดึงข้อมูลทั้งหมดของผู้ใช้
   }
